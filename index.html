@@ -1,13 +1,305 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Xavier Dev Institutional Website</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Xavier Dev - Soluções Inteligentes em TI">
+    <title>Xavier Dev - Serviços em Informática</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="bi bi-code-slash"></i>
+                <span>Xavier Dev</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home" data-translate="nav.home">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" data-translate="nav.about">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services" data-translate="nav.services">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact" data-translate="nav.contact">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-link nav-link" id="themeToggle" title="Toggle theme">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <select class="form-select form-select-sm language-selector" id="languageSelector">
+                            <option value="pt-BR">PT-BR</option>
+                            <option value="en-US">EN-US</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-3 fw-bold mb-4" data-translate="hero.title">
+                        Soluções Inteligentes em TI
+                    </h1>
+                    <p class="lead mb-4" data-translate="hero.subtitle">
+                        Transformamos tecnologia em resultados para o seu negócio com serviços especializados em infraestrutura e desenvolvimento
+                    </p>
+                    <a href="#contact" class="btn btn-primary btn-lg" data-translate="hero.cta">
+                        Entre em Contato
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title text-center mb-5" data-translate="about.title">Sobre a Xavier Dev</h2>
+                    <div class="about-card p-4 p-md-5">
+                        <p class="lead" data-translate="about.description1">
+                            A <strong>Xavier Dev Serviços em Informática</strong> é uma empresa especializada em soluções tecnológicas, oferecendo serviços de tratamento de dados, hospedagem web e desenvolvimento de aplicações.
+                        </p>
+                        <p class="lead mb-4" data-translate="about.description2">
+                            Estabelecida em 2017 no Rio de Janeiro, temos o compromisso de entregar excelência em cada projeto, combinando expertise técnica com atendimento personalizado.
+                        </p>
+
+                        <div class="row g-4 mt-4">
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill text-primary"></i>
+                                    <div>
+                                        <h5 data-translate="about.feature1.title">Experiência</h5>
+                                        <p data-translate="about.feature1.desc">Desde 2017 no mercado de TI</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill text-primary"></i>
+                                    <div>
+                                        <h5 data-translate="about.feature2.title">Qualidade</h5>
+                                        <p data-translate="about.feature2.desc">Soluções confiáveis e eficientes</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill text-primary"></i>
+                                    <div>
+                                        <h5 data-translate="about.feature3.title">Inovação</h5>
+                                        <p data-translate="about.feature3.desc">Tecnologias modernas e atualizadas</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill text-primary"></i>
+                                    <div>
+                                        <h5 data-translate="about.feature4.title">Suporte</h5>
+                                        <p data-translate="about.feature4.desc">Atendimento dedicado e ágil</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-3" data-translate="services.title">Nossos Serviços</h2>
+            <p class="text-center text-muted mb-5" data-translate="services.subtitle">
+                Oferecemos soluções completas em tecnologia da informação para impulsionar seu negócio
+            </p>
+
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card h-100">
+                        <div class="service-icon">
+                            <i class="bi bi-hdd-network"></i>
+                        </div>
+                        <h4 data-translate="services.service1.title">Hospedagem Web</h4>
+                        <p data-translate="services.service1.desc">
+                            Serviços confiáveis de hospedagem com alta disponibilidade e performance otimizada para seu negócio
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card h-100">
+                        <div class="service-icon">
+                            <i class="bi bi-database"></i>
+                        </div>
+                        <h4 data-translate="services.service2.title">Tratamento de Dados</h4>
+                        <p data-translate="services.service2.desc">
+                            Processamento e gerenciamento profissional de dados com segurança e eficiência garantidas
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card h-100">
+                        <div class="service-icon">
+                            <i class="bi bi-code-square"></i>
+                        </div>
+                        <h4 data-translate="services.service3.title">Desenvolvimento</h4>
+                        <p data-translate="services.service3.desc">
+                            Soluções personalizadas em desenvolvimento de software para atender suas necessidades específicas
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card h-100">
+                        <div class="service-icon">
+                            <i class="bi bi-globe"></i>
+                        </div>
+                        <h4 data-translate="services.service4.title">Provedores de Aplicação</h4>
+                        <p data-translate="services.service4.desc">
+                            Serviços especializados em aplicações web e sistemas integrados para otimizar seus processos
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center mb-3" data-translate="contact.title">Entre em Contato</h2>
+            <p class="text-center text-muted mb-5" data-translate="contact.subtitle">
+                Estamos prontos para atender suas necessidades em tecnologia
+            </p>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="contact-info h-100">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+                            <div>
+                                <h5 data-translate="contact.phone">Telefone</h5>
+                                <p>(21) 91243-3246</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <p>[email protected]</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <div>
+                                <h5 data-translate="contact.address">Endereço</h5>
+                                <p>
+                                    Rua Piauí, 77 - Apt 406, Bloco 2<br>
+                                    Todos Os Santos<br>
+                                    Rio de Janeiro - RJ<br>
+                                    CEP: 20.770-130
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="company-info mt-4 p-4">
+                            <h5 class="mb-3" data-translate="contact.companyInfo">Informações da Empresa</h5>
+                            <p><strong data-translate="contact.companyName">Razão Social:</strong><br>
+                            Xavier Dev Serviços em Informática EIRELI - ME</p>
+                            <p><strong>CNPJ:</strong> 28.651.037/0001-07</p>
+                            <p><strong data-translate="contact.activity">Atividade Principal:</strong><br>
+                            <span data-translate="contact.activityDesc">Tratamento de dados, provedores de serviços de aplicação e hospedagem na Internet</span></p>
+                            <p><strong data-translate="contact.since">Desde:</strong> 13/09/2017</p>
+                        </div>
+
+                        <div class="social-links mt-4">
+                            <a href="https://instagram.com/xavierdev" target="_blank" class="social-link" title="Instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="https://facebook.com/xavierdev" target="_blank" class="social-link" title="Facebook">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="https://linkedin.com/company/xavierdev" target="_blank" class="social-link" title="LinkedIn">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="contact-form-wrapper">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label" data-translate="contact.form.name">Nome</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label" data-translate="contact.form.phone">Telefone</label>
+                                <input type="tel" class="form-control" id="phone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label" data-translate="contact.form.message">Mensagem</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100" id="submitBtn">
+                                <span data-translate="contact.form.submit">Enviar Mensagem</span>
+                            </button>
+                            <div id="formMessage" class="mt-3"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                <div class="footer-brand mb-3">
+                    <i class="bi bi-code-slash"></i>
+                    <span>Xavier Dev</span>
+                </div>
+                <p>&copy; <span id="currentYear"></span> Xavier Dev Serviços em Informática EIRELI - ME. <span data-translate="footer.rights">Todos os direitos reservados</span>.</p>
+                <p class="mb-0">CNPJ: 28.651.037/0001-07</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/src/main.js"></script>
+</body>
 </html>
