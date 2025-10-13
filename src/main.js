@@ -21,10 +21,13 @@ function setupEventListeners() {
     const contactForm = document.getElementById('contactForm');
 
     themeToggle.addEventListener('click', toggleTheme);
-    languageSelector.value = currentLanguage;
-    languageSelector.addEventListener('change', (e) => {
-        setLanguage(e.target.value);
-    });
+
+    if (languageSelector) {
+        languageSelector.value = currentLanguage;
+        languageSelector.addEventListener('change', (e) => {
+            setLanguage(e.target.value);
+        });
+    }
 
     contactForm.addEventListener('submit', handleFormSubmit);
 
