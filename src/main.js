@@ -20,7 +20,9 @@ function setupEventListeners() {
     const languageSelector = document.getElementById('languageSelector');
     const contactForm = document.getElementById('contactForm');
 
-    themeToggle.addEventListener('click', toggleTheme);
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
 
     if (languageSelector) {
         languageSelector.value = currentLanguage;
