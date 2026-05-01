@@ -41,3 +41,14 @@ jobs:
           local_path: "./dist/*"
           remote_path: ${{ secrets.SFTP_REMOTE_PATH }}
           delete_remote_files: false
+
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Deploy Supabase Functions
+        run: supabase functions deploy send-contact-email --project-ref zjyotnuidvbnlbyhqrsr
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+

@@ -11,6 +11,7 @@ Estas variáveis são necessárias no GitHub para o processo de build e deploy:
 - `VITE_SUPABASE_URL`: URL do seu projeto Supabase.
 - `VITE_SUPABASE_ANON_KEY`: Chave anônima (anon key) do seu projeto Supabase.
 - `SFTP_SERVER`, `SFTP_PORT`, `SFTP_USERNAME`, `SFTP_PASSWORD`, `SFTP_REMOTE_PATH`: Dados para o deploy via SFTP.
+- `SUPABASE_ACCESS_TOKEN`: Token de acesso pessoal do Supabase (gerado em `Account Settings > Access Tokens`).
 
 ### Supabase Secrets
 Esta variável deve ser configurada no Supabase para o envio de e-mails:
