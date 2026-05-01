@@ -81,7 +81,19 @@ Deno.serve(async (req: Request) => {
 
     if (!res.ok) {
       console.error("Resend API error:", resData);
-      throw new Error("Failed to send email");
+      return new Response(
+        JSON.stringify({ 
+          error: "Resend API error", 
+          details: resData 
+        }),
+        {
+          status: res.status,
+          headers: {
+            ...corsHeaders,
+            "Content-Type": "application/json",
+          },
+        }
+      );
     }
 
     return new Response(
@@ -100,7 +112,10 @@ Deno.serve(async (req: Request) => {
   } catch (error) {
     console.error("Error processing contact form:", error);
     return new Response(
-      JSON.stringify({ error: "Internal server error" }),
+      JSON.stringify({ 
+        error: "Internal server error", 
+        message: error.message 
+      }),
       {
         status: 500,
         headers: {
@@ -110,4 +125,5 @@ Deno.serve(async (req: Request) => {
       }
     );
   }
-});
+});
+
