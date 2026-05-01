@@ -37,4 +37,4 @@ jobs:
           password: ${{ secrets.SFTP_PASSWORD }}
           local_path: "./dist/*"
           remote_path: ${{ secrets.SFTP_REMOTE_PATH }}
-          delete_remote_files: false
+          delete_remote_files: true
