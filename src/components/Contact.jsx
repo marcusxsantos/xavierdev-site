@@ -69,7 +69,6 @@ export default function Contact() {
               <p><strong>{t.contact.companyName}</strong><br />Xavier Dev Serviços em Informática EIRELI - ME</p>
               <p><strong>CNPJ:</strong> 28.651.037/0001-07</p>
               <p><strong>{t.contact.activity}</strong><br />{t.contact.activityDesc}</p>
-              <p><strong>{t.contact.since}</strong> 13/09/2017</p>
             </div>
             <div className="contact__social">
               <a href="https://instagram.com/xavierdev" target="_blank" rel="noopener noreferrer" className="contact__social-link" aria-label="Instagram"><i className="bi bi-instagram" /></a>
