@@ -35,29 +35,54 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    console.log("Contact form submission received:", {
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone || "N/A",
-      message: formData.message.substring(0, 50) + "...",
-    });
+    const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 
-    const emailContent = `
-      Nova mensagem de contato do site Xavier Dev
-      
-      Nome: ${formData.name}
-      Email: ${formData.email}
-      Telefone: ${formData.phone || "Não informado"}
-      
-      Mensagem:
-      ${formData.message}
-      
-      ---
-      Enviado através do formulário de contato do site
+    if (!RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is not set");
+      return new Response(
+        JSON.stringify({ error: "Email service not configured" }),
+        {
+          status: 500,
+          headers: {
+            ...corsHeaders,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+    }
+
+    const emailHtml = `
+      <h2>Nova mensagem de contato do site Xavier Dev</h2>
+      <p><strong>Nome:</strong> ${formData.name}</p>
+      <p><strong>Email:</strong> ${formData.email}</p>
+      <p><strong>Telefone:</strong> ${formData.phone || "Não informado"}</p>
+      <p><strong>Mensagem:</strong></p>
+      <p>${formData.message.replace(/\n/g, "<br>")}</p>
+      <hr>
+      <p><small>Enviado através do formulário de contato do site xavierdev.com.br</small></p>
     `;
 
-    console.log("Email would be sent to: [email protected]");
-    console.log("Email content:", emailContent);
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: "Xavier Dev <onboarding@resend.dev>",
+        to: ["contato@xavierdev.com.br"],
+        subject: `Nova mensagem: ${formData.name}`,
+        html: emailHtml,
+        reply_to: formData.email,
+      }),
+    });
+
+    const resData = await res.json();
+
+    if (!res.ok) {
+      console.error("Resend API error:", resData);
+      throw new Error("Failed to send email");
+    }
 
     return new Response(
       JSON.stringify({
@@ -85,4 +110,4 @@ Deno.serve(async (req: Request) => {
       }
     );
   }
-});
+});

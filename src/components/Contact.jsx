@@ -17,24 +17,42 @@ export default function Contact() {
     e.preventDefault();
     setSending(true);
     setStatus(null);
+
+    // Debugging: Log variables (masking sensitive parts)
+    console.log('Supabase URL:', SUPABASE_URL);
+    if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+      console.error('Supabase configuration is missing. Check your environment variables.');
+      setStatus('error');
+      setSending(false);
+      return;
+    }
+
     try {
       const res = await fetch(`${SUPABASE_URL}/functions/v1/send-contact-email`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'apikey': SUPABASE_ANON_KEY
+        },
         body: JSON.stringify(form),
       });
       if (res.ok) {
         setStatus('success');
         setForm({ name: '', email: '', phone: '', message: '' });
       } else {
+        const errorData = await res.json().catch(() => ({}));
+        console.error('Form submission failed:', errorData);
         setStatus('error');
       }
-    } catch {
+    } catch (err) {
+      console.error('Fetch error:', err);
       setStatus('error');
     } finally {
       setSending(false);
     }
   };
+
 
   return (
     <section id="contact" className="contact section">
