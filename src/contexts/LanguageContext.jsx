@@ -44,6 +44,43 @@ const translations = {
       activityDesc: 'Tratamento de dados, provedores de serviços de aplicação e hospedagem na Internet',
       form: { name: 'Nome', phone: 'Telefone', message: 'Mensagem', submit: 'Enviar Mensagem', sending: 'Enviando...', success: 'Mensagem enviada com sucesso!', error: 'Erro ao enviar. Tente novamente.' },
     },
+    stats: {
+      items: [
+        { value: '15+', label: 'Anos de Experiência' },
+        { value: '200+', label: 'Projetos Entregues' },
+        { value: '100%', label: 'Satisfação dos Clientes' },
+        { value: '24/7', label: 'Monitoramento por IA' },
+      ],
+    },
+    testimonials: {
+      title: 'O que dizem nossos clientes',
+      items: [
+        { name: 'Ricardo Silva', role: 'CTO, Tech Solutions', text: 'A Xavier Dev transformou nossa infraestrutura com soluções de IA que superaram nossas expectativas.' },
+        { name: 'Ana Oliveira', role: 'Diretora, Global Logistics', text: 'Eficiência e inovação. O suporte deles é impecável e as soluções de hospedagem são extremamente estáveis.' },
+      ],
+    },
+    pricing: {
+      title: 'Planos e Pacotes',
+      subtitle: 'Soluções escaláveis para empresas de todos os tamanhos',
+      cta: 'Começar Agora',
+      tiers: [
+        {
+          name: 'Starter',
+          price: 'Sob Consulta',
+          features: ['Hospedagem Básica', 'Suporte por E-mail', 'Monitoramento 9/5', '1 Aplicação'],
+        },
+        {
+          name: 'Business',
+          price: 'Mais Popular',
+          features: ['Hospedagem Premium', 'Suporte Prioritário', 'Monitoramento 24/7', 'Integração com IA'],
+        },
+        {
+          name: 'Enterprise',
+          price: 'Customizado',
+          features: ['Infraestrutura Dedicada', 'SLA de 99.9%', 'Desenvolvimento Sob Medida', 'Consultoria em IA'],
+        },
+      ],
+    },
     footer: { rights: 'Todos os direitos reservados' },
   },
   'en': {
@@ -89,6 +126,43 @@ const translations = {
       activityDesc: 'Data processing, application service providers and Internet hosting',
       form: { name: 'Name', phone: 'Phone', message: 'Message', submit: 'Send Message', sending: 'Sending...', success: 'Message sent successfully!', error: 'Error sending message. Please try again.' },
     },
+    stats: {
+      items: [
+        { value: '15+', label: 'Years of Experience' },
+        { value: '200+', label: 'Projects Delivered' },
+        { value: '100%', label: 'Client Satisfaction' },
+        { value: '24/7', label: 'AI Monitoring' },
+      ],
+    },
+    testimonials: {
+      title: 'What our clients say',
+      items: [
+        { name: 'Ricardo Silva', role: 'CTO, Tech Solutions', text: 'Xavier Dev transformed our infrastructure with AI solutions that exceeded our expectations.' },
+        { name: 'Ana Oliveira', role: 'Director, Global Logistics', text: 'Efficiency and innovation. Their support is impeccable and the hosting solutions are extremely stable.' },
+      ],
+    },
+    pricing: {
+      title: 'Plans & Packages',
+      subtitle: 'Scalable solutions for companies of all sizes',
+      cta: 'Get Started',
+      tiers: [
+        {
+          name: 'Starter',
+          price: 'On Request',
+          features: ['Basic Hosting', 'Email Support', '9/5 Monitoring', '1 Application'],
+        },
+        {
+          name: 'Business',
+          price: 'Most Popular',
+          features: ['Premium Hosting', 'Priority Support', '24/7 Monitoring', 'AI Integration'],
+        },
+        {
+          name: 'Enterprise',
+          price: 'Custom',
+          features: ['Dedicated Infrastructure', '99.9% SLA', 'Custom Development', 'AI Consulting'],
+        },
+      ],
+    },
     footer: { rights: 'All rights reserved' },
   },
   'es': {
@@ -132,7 +206,44 @@ const translations = {
       companyName: 'Razón Social:',
       activity: 'Actividad Principal:',
       activityDesc: 'Tratamiento de datos, proveedores de servicios de aplicación y alojamiento en Internet',
-      form: { name: 'Nombre', phone: 'Teléfono', message: 'Mensaje', submit: 'Enviar Mensaje', sending: 'Enviando...', success: 'Mensaje enviado con éxito!', error: 'Error al enviar. Intente nuevamente.' },
+      form: { name: 'Nombre', phone: 'Teléfono', message: 'Mensaje', submit: 'Enviar Mensaje', sending: 'Enviando...', success: 'Mensaje enviado com éxito!', error: 'Error al enviar. Intente nuevamente.' },
+    },
+    stats: {
+      items: [
+        { value: '15+', label: 'Años de Experiencia' },
+        { value: '200+', label: 'Proyectos Entregados' },
+        { value: '100%', label: 'Satisfacción de Clientes' },
+        { value: '24/7', label: 'Monitoreo por IA' },
+      ],
+    },
+    testimonials: {
+      title: 'Lo que dicen nuestros clientes',
+      items: [
+        { name: 'Ricardo Silva', role: 'CTO, Tech Solutions', text: 'Xavier Dev transformó nuestra infraestructura con soluciones de IA que superaron nuestras expectativas.' },
+        { name: 'Ana Oliveira', role: 'Directora, Global Logistics', text: 'Eficiencia e innovación. Su soporte es impecable y las soluciones de alojamiento son extremadamente estables.' },
+      ],
+    },
+    pricing: {
+      title: 'Planes y Paquetes',
+      subtitle: 'Soluciones escalables para empresas de todos los tamaños',
+      cta: 'Empezar Ahora',
+      tiers: [
+        {
+          name: 'Starter',
+          price: 'Bajo Consulta',
+          features: ['Alojamiento Básico', 'Soporte por Email', 'Monitoreo 9/5', '1 Aplicación'],
+        },
+        {
+          name: 'Business',
+          price: 'Más Popular',
+          features: ['Alojamiento Premium', 'Soporte Prioritario', 'Monitoreo 24/7', 'Integración con IA'],
+        },
+        {
+          name: 'Enterprise',
+          price: 'Personalizado',
+          features: ['Infraestructura Dedicada', '99.9% SLA', 'Desarrollo a Medida', 'Consultoría en IA'],
+        },
+      ],
     },
     footer: { rights: 'Todos los derechos reservados' },
   },

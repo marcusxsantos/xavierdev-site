@@ -406,17 +406,91 @@ body {
 .footer__logo-text { font-weight: 700; font-size: 1.25rem; }
 .footer p { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 4px; }
 
-/* ── Responsive ── */
-@media (max-width: 768px) {
-  .section { padding: 64px 0; }
-  .about__card { padding: 28px; }
-  .contact__grid { grid-template-columns: 1fr; }
-  .contact__info, .contact__form { padding: 24px; }
-  .hero__container { padding: 60px 24px; }
-  .services__grid { grid-template-columns: 1fr; }
+/* ── Stats ── */
+.stats { margin-top: 64px; }
+.stats__grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
 }
+.stats__item { text-align: center; }
+.stats__value {
+  font-size: 3rem; font-weight: 800;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin-bottom: 8px;
+}
+.stats__label { color: var(--text-secondary); font-weight: 600; font-size: 0.95rem; }
 
-@media (max-width: 480px) {
-  .hero__actions { flex-direction: column; align-items: center; }
-  .btn { width: 100%; justify-content: center; }
+/* ── Testimonials ── */
+.testimonials__grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px; margin-top: 48px;
+}
+.testimonial-card {
+  background: var(--bg-card); border: 1px solid var(--border-color);
+  border-radius: 20px; padding: 40px; box-shadow: var(--shadow-sm);
+  transition: all 0.3s;
+}
+.testimonial-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--accent); }
+.testimonial-card__icon { color: var(--accent-glow); margin-bottom: 24px; }
+.testimonial-card__text { font-style: italic; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7; margin-bottom: 32px; }
+.testimonial-card__author { display: flex; align-items: center; gap: 16px; }
+.testimonial-card__avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 1.2rem;
+}
+.testimonial-card__name { font-weight: 700; font-size: 1rem; }
+.testimonial-card__role { color: var(--text-tertiary); font-size: 0.85rem; }
+
+/* ── Pricing ── */
+.pricing__grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px; margin-top: 48px;
+}
+.pricing-card {
+  background: var(--bg-card); border: 1px solid var(--border-color);
+  border-radius: 24px; padding: 48px 40px; text-align: center;
+  position: relative; transition: all 0.3s;
+}
+.pricing-card--popular {
+  border-color: var(--accent); border-width: 2px;
+  transform: scale(1.05); box-shadow: var(--shadow-glow);
+}
+.pricing-card__badge {
+  position: absolute; top: 24px; right: 24px;
+  background: var(--accent); color: #fff; font-size: 0.75rem;
+  padding: 4px 12px; border-radius: 100px; font-weight: 700;
+}
+.pricing-card__name { font-size: 1.25rem; font-weight: 700; margin-bottom: 16px; }
+.pricing-card__price { font-size: 2rem; font-weight: 800; margin-bottom: 32px; }
+.pricing-card__features { list-style: none; text-align: left; margin-bottom: 40px; }
+.pricing-card__features li { display: flex; gap: 12px; margin-bottom: 16px; color: var(--text-secondary); font-size: 0.95rem; }
+.pricing-card__feature-icon { color: var(--success); flex-shrink: 0; margin-top: 2px; }
+
+/* ── WhatsApp Float ── */
+.whatsapp-float {
+  position: fixed; bottom: 32px; right: 32px; z-index: 100;
+  width: 64px; height: 64px; border-radius: 50%;
+  background: #25d366; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
+  text-decoration: none; transition: all 0.3s;
+}
+.whatsapp-float:hover { transform: scale(1.1) translateY(-5px); box-shadow: 0 12px 48px rgba(37, 211, 102, 0.6); }
+.whatsapp-float__tooltip {
+  position: absolute; right: 80px; background: #333; color: #fff;
+  padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+  white-space: nowrap; opacity: 0; transform: translateX(10px);
+  transition: all 0.3s; pointer-events: none;
+}
+.whatsapp-float:hover .whatsapp-float__tooltip { opacity: 1; transform: translateX(0); }
+
+/* ── Responsive Improvements ── */
+@media (max-width: 768px) {
+  .pricing-card--popular { transform: none; }
+  .stats__grid { grid-template-columns: 1fr 1fr; }
+  .pricing__grid { grid-template-columns: 1fr; }
+  .whatsapp-float { bottom: 24px; right: 24px; width: 56px; height: 56px; }
 }
