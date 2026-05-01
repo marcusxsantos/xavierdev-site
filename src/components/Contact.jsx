@@ -54,7 +54,7 @@ export default function Contact() {
               <div className="contact__info-icon"><Mail size={22} /></div>
               <div>
                 <h4>{t.contact.email}</h4>
-                <p>xavier@xavierdev.com.br</p>
+                <p>contato@xavierdev.com.br</p>
               </div>
             </div>
             <div className="contact__info-item">
