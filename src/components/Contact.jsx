@@ -2,8 +2,15 @@ import { useState } from 'react';
 import { Phone, Mail, MapPin, Send, Loader as Loader2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID || import.meta.env.VITE_FORMSPREE_ENDPOINT;
+
+const getFormspreeUrl = (idOrUrl) => {
+  if (!idOrUrl) return 'https://formspree.io/f/seu-id-formspree';
+  if (idOrUrl.startsWith('http://') || idOrUrl.startsWith('https://')) {
+    return idOrUrl;
+  }
+  return `https://formspree.io/f/${idOrUrl}`;
+};
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -18,25 +25,23 @@ export default function Contact() {
     setSending(true);
     setStatus(null);
 
-    // Debugging: Log variables (masking sensitive parts)
-    console.log('Supabase URL:', SUPABASE_URL);
-    if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
-      console.error('Supabase configuration is missing. Check your environment variables.');
-      setStatus('error');
-      setSending(false);
-      return;
-    }
+    const endpoint = getFormspreeUrl(FORMSPREE_ID);
 
     try {
-      const res = await fetch(`${SUPABASE_URL}/functions/v1/send-contact-email`, {
+      const res = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-          'apikey': SUPABASE_ANON_KEY
+          'Accept': 'application/json'
         },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          message: form.message
+        }),
       });
+
       if (res.ok) {
         setStatus('success');
         setForm({ name: '', email: '', phone: '', message: '' });
@@ -97,19 +102,19 @@ export default function Contact() {
           <form className="contact__form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">{t.contact.form.name}</label>
-              <input type="text" id="name" value={form.name} onChange={handleChange} required />
+              <input type="text" id="name" name="name" value={form.name} onChange={handleChange} required />
             </div>
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input type="email" id="email" value={form.email} onChange={handleChange} required />
+              <input type="email" id="email" name="email" value={form.email} onChange={handleChange} required />
             </div>
             <div className="form-group">
               <label htmlFor="phone">{t.contact.form.phone}</label>
-              <input type="tel" id="phone" value={form.phone} onChange={handleChange} />
+              <input type="tel" id="phone" name="phone" value={form.phone} onChange={handleChange} />
             </div>
             <div className="form-group">
               <label htmlFor="message">{t.contact.form.message}</label>
-              <textarea id="message" rows="5" value={form.message} onChange={handleChange} required />
+              <textarea id="message" name="message" rows="5" value={form.message} onChange={handleChange} required />
             </div>
             <button type="submit" className="btn btn--primary btn--full" disabled={sending}>
               {sending ? <><Loader2 size={18} className="spin" /> {t.contact.form.sending}</> : <><Send size={18} /> {t.contact.form.submit}</>}
