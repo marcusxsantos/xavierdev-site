@@ -1,0 +1,1 @@
+Teste automatizado de permissao do gh CLI — 2026-09-16 09:28. Arquivo temporario.
