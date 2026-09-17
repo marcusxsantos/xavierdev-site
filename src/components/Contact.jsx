@@ -94,7 +94,7 @@ export default function Contact() {
               <p><strong>{t.contact.activity}</strong><br />{t.contact.activityDesc}</p>
             </div>
             <div className="contact__social">
-              <a href="https://instagram.com/xavierdev" target="_blank" rel="noopener noreferrer" className="contact__social-link" aria-label="Instagram"><i className="bi bi-instagram" /></a>
+              <a href="https://instagram.com/xavierdevbr" target="_blank" rel="noopener noreferrer" className="contact__social-link" aria-label="Instagram"><i className="bi bi-instagram" /></a>
               <a href="https://facebook.com/xavierdev" target="_blank" rel="noopener noreferrer" className="contact__social-link" aria-label="Facebook"><i className="bi bi-facebook" /></a>
               <a href="https://linkedin.com/company/xavierdev" target="_blank" rel="noopener noreferrer" className="contact__social-link" aria-label="LinkedIn"><i className="bi bi-linkedin" /></a>
             </div>
