@@ -1,7 +1,11 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 const translations = {
   'pt': {
+    meta: {
+      title: 'Xavier Dev | Inteligência Artificial, Desenvolvimento de Software e Hospedagem Web no RJ',
+      description: 'Xavier Dev - Soluções especialistas em Inteligência Artificial, Desenvolvimento de Software sob medida, Hospedagem Web resiliente e Tratamento de Dados no Rio de Janeiro.',
+    },
     nav: { home: 'Início', about: 'Sobre', services: 'Serviços', contact: 'Contato' },
     hero: {
       badge: 'Impulsionado por IA',
@@ -84,6 +88,10 @@ const translations = {
     footer: { rights: 'Todos os direitos reservados' },
   },
   'en': {
+    meta: {
+      title: 'Xavier Dev | Artificial Intelligence, Software Development & Web Hosting',
+      description: 'Xavier Dev - Expert solutions in Artificial Intelligence, Custom Software Development, High-Availability Web Hosting and Data Processing based in Rio de Janeiro.',
+    },
     nav: { home: 'Home', about: 'About', services: 'Services', contact: 'Contact' },
     hero: {
       badge: 'AI-Powered',
@@ -166,6 +174,10 @@ const translations = {
     footer: { rights: 'All rights reserved' },
   },
   'es': {
+    meta: {
+      title: 'Xavier Dev | Inteligencia Artificial, Desarrollo de Software y Alojamiento Web',
+      description: 'Xavier Dev - Soluciones expertas en Inteligencia Artificial, Desarrollo de Software a medida, Alojamiento Web y Tratamiento de Datos con sede en Río de Janeiro.',
+    },
     nav: { home: 'Inicio', about: 'Nosotros', services: 'Servicios', contact: 'Contacto' },
     hero: {
       badge: 'Impulsado por IA',
@@ -187,7 +199,7 @@ const translations = {
       ],
     },
     services: {
-      title: 'Nuestros Servicios',
+      title: 'Nuestros Serviços',
       subtitle: 'Soluciones completas de tecnología con Inteligencia Artificial para impulsar su negocio',
       items: [
         { title: 'Alojamiento Web', desc: 'Infraestructura de alojamiento con alta disponibilidad, rendimiento optimizado y monitoreo inteligente por IA.', icon: 'hosting' },
@@ -205,7 +217,7 @@ const translations = {
       companyInfo: 'Información de la Empresa',
       companyName: 'Razón Social:',
       activity: 'Actividad Principal:',
-      activityDesc: 'Tratamiento de datos, proveedores de servicios de aplicación y alojamiento en Internet',
+      activityDesc: 'Tratamento de datos, proveedores de servicios de aplicación y alojamiento en Internet',
       form: { name: 'Nombre', phone: 'Teléfono', message: 'Mensaje', submit: 'Enviar Mensaje', sending: 'Enviando...', success: 'Mensaje enviado com éxito!', error: 'Error al enviar. Intente nuevamente.' },
     },
     stats: {
@@ -257,10 +269,36 @@ export function LanguageProvider({ children }) {
   const changeLanguage = (lang) => {
     setLanguage(lang);
     localStorage.setItem('language', lang);
-    document.documentElement.lang = lang;
   };
 
-  const t = translations[language];
+  const t = translations[language] || translations['pt'];
+
+  useEffect(() => {
+    document.documentElement.lang = language === 'pt' ? 'pt-BR' : language;
+    if (t?.meta) {
+      document.title = t.meta.title;
+      const descTag = document.querySelector('meta[name="description"]');
+      if (descTag) {
+        descTag.setAttribute('content', t.meta.description);
+      }
+      const ogTitleTag = document.querySelector('meta[property="og:title"]');
+      if (ogTitleTag) {
+        ogTitleTag.setAttribute('content', t.meta.title);
+      }
+      const ogDescTag = document.querySelector('meta[property="og:description"]');
+      if (ogDescTag) {
+        ogDescTag.setAttribute('content', t.meta.description);
+      }
+      const twitterTitleTag = document.querySelector('meta[property="twitter:title"]');
+      if (twitterTitleTag) {
+        twitterTitleTag.setAttribute('content', t.meta.title);
+      }
+      const twitterDescTag = document.querySelector('meta[property="twitter:description"]');
+      if (twitterDescTag) {
+        twitterDescTag.setAttribute('content', t.meta.description);
+      }
+    }
+  }, [language, t]);
 
   return (
     <LanguageContext.Provider value={{ language, changeLanguage, t }}>
@@ -270,3 +308,4 @@ export function LanguageProvider({ children }) {
 }
 
 export const useLanguage = () => useContext(LanguageContext);
+
