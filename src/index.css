@@ -492,5 +492,9 @@ body {
   .pricing-card--popular { transform: none; }
   .stats__grid { grid-template-columns: 1fr 1fr; }
   .pricing__grid { grid-template-columns: 1fr; }
+  /* Contato: info e formulário empilham (form embaixo) em vez de disputar
+     metade da largura, que é o que fazia o conteúdo estourar no celular. */
+  .contact__grid { grid-template-columns: 1fr; gap: 24px; }
+  .contact__info, .contact__form { padding: 24px; }
   .whatsapp-float { bottom: 24px; right: 24px; width: 56px; height: 56px; }
 }
